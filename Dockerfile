@@ -20,7 +20,8 @@ RUN apt-get update
 # Packages
 RUN apt-get install -y sudo \
     python3-pip \
-    git
+    git \
+    htop
 
 # Clean packages installation
 RUN apt-get clean

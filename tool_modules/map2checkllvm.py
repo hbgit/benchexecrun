@@ -50,7 +50,7 @@ class Tool(benchexec.tools.template.BaseTool):
         return self._version_from_tool(executable)
 
     def name(self):
-        return 'Map2Check'
+        return 'Map2CheckLLVM'
 
     def cmdline(self, executable, options, sourcefiles, propertyfile, rlimits):
         assert len(sourcefiles) == 1, "only one sourcefile supported"
