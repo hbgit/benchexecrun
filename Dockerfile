@@ -1,6 +1,9 @@
 ############################################################
 # Dockerfile to run benchexec
 # based on Ubuntu
+#  By gitclone https://github.com/hbgit/benchexecrun:
+#   $ docker build -t hrocha/benchexec .
+#   $ docker run -v /sys/fs/cgroup:/sys/fs/cgroup:rw --name=benchexecrun -it hrocha/benchexecrun /bin/bash 
 ############################################################
 
 FROM ubuntu:16.10
@@ -8,35 +11,34 @@ FROM ubuntu:16.10
 # Metadata indicating an image maintainer.
 MAINTAINER <herberthb12@gmail.com>
 
-ENV REPO_DIR=/home/bench/benchexec_files
+ENV REPO_DIR=/home/bench/benchexec_files \
+    REPO_TOOLS=/home/bench/benchexec_files/tools
 
 # Update the repository sources list
 RUN apt-get update
 
 # Packages
 RUN apt-get install -y sudo \
-    python3-pip
+    python3-pip \
+    git
 
 # Clean packages installation
 RUN apt-get clean
 
 # Install benchexec
-pip3 install benchexec
-
-# checking cgroups with benchexec
-python3 -m benchexec.check_cgroups
+RUN pip3 install benchexec
 
 # Copy across source files needed for build
+RUN mkdir /home/bench/
 RUN mkdir ${REPO_DIR}
+WORKDIR ${REPO_DIR}
+RUN mkdir ${REPO_TOOLS}
 ADD / ${REPO_DIR}
+
+RUN ls
 
 # copying tool modules to the benchexec
 RUN cp -r tool_modules/* /usr/local/lib/python3.5/dist-packages/benchexec/tools/
-
-# Testing if the modules are located
-python3 -m benchexec.test_tool_info map2checkllvm
-
-
 
 
 
