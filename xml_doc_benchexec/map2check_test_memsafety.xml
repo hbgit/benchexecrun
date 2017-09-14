@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.4//EN" "http://www.sosy-lab.org/benchexec/benchmark-1.4.dtd">
-<benchmark tool="map2checkllvm" timelimit="900 s" memlimit="5 GB" cpuCores="5">
+<benchmark tool="map2check" timelimit="900 s" memlimit="5 GB" cpuCores="5">
 
   <rundefinition name="sv-comp17"></rundefinition>
   

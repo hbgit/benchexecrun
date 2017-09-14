@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.4//EN" "http://www.sosy-lab.org/benchexec/benchmark-1.4.dtd">
-<benchmark tool="map2checkllvm" timelimit="900 s" memlimit="5 GB" cpuCores="5">
+<benchmark tool="map2checkllvm" timelimit="900 s" memlimit="8 GB" cpuCores="4">
 
   <rundefinition name="sv-comp17"></rundefinition>
-  
+  <!--
   <tasks name="MemSafety-Arrays">
     <includesfile>/home/bench/benchexec_files/sv-benchmarks/c/MemSafety-Arrays.set</includesfile>
     <propertyfile>/home/bench/benchexec_files/sv-benchmarks/c/MemSafety.prp</propertyfile>
   </tasks>
-  
+  -->
   <tasks name="MemSafety-Heap">
-    <includesfile>/home/bench/benchexec_files/sv-benchmarks/c/MemSafety-Heap.set</includesfile>
+    <includesfile>/home/bench/benchexec_files/sv-benchmarks/c/MemSafety-Heap-free.set</includesfile>
     <propertyfile>/home/bench/benchexec_files/sv-benchmarks/c/MemSafety.prp</propertyfile>
   </tasks>
-  
+  <!--
   <tasks name="MemSafety-LinkedLists">
     <includesfile>/home/bench/benchexec_files/sv-benchmarks/c/MemSafety-LinkedLists.set</includesfile>
     <propertyfile>/home/bench/benchexec_files/sv-benchmarks/c/MemSafety.prp</propertyfile>
@@ -23,6 +23,6 @@
     <includesfile>/home/bench/benchexec_files/sv-benchmarks/c/MemSafety-Other.set</includesfile>
     <propertyfile>/home/bench/benchexec_files/sv-benchmarks/c/MemSafety.prp</propertyfile>
   </tasks>  
-  
+  -->
   
 </benchmark>

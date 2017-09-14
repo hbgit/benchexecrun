@@ -6,7 +6,7 @@
 #   $ docker run -v /sys/fs/cgroup:/sys/fs/cgroup:rw --name=benchexecrun -it hrocha/benchexecrun /bin/bash 
 ############################################################
 
-FROM ubuntu:16.10
+FROM ubuntu:16.04
 
 # Metadata indicating an image maintainer.
 MAINTAINER <herberthb12@gmail.com>
