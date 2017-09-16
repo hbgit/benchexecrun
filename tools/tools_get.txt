@@ -1,0 +1,1 @@
+wget https://github.com/hbgit/Map2Check/archive/v7.zip

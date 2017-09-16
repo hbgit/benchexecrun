@@ -21,7 +21,11 @@ RUN apt-get update
 RUN apt-get install -y sudo \
     python3-pip \
     git \
-    htop
+    htop \
+    wget \
+    subversion \
+    ant \ 
+    vim
 
 # Clean packages installation
 RUN apt-get clean
@@ -41,7 +45,7 @@ RUN ls
 # copying tool modules to the benchexec
 RUN cp -r tool_modules/* /usr/local/lib/python3.5/dist-packages/benchexec/tools/
 
+RUN cd tools/ ; wget https://github.com/hbgit/Map2Check/archive/v7.zip; unzip v7.zip
 
-
-
+RUN svn co https://svn.sosy-lab.org/software/cpachecker/trunk CPAchecker; cd CPAchecker; ant; cd ..
     
