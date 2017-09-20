@@ -24,8 +24,9 @@ RUN apt-get install -y sudo \
     htop \
     wget \
     subversion \
-    ant \ 
-    vim
+    vim \
+    ant \
+    default-jre
 
 # Clean packages installation
 RUN apt-get clean
