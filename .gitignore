@@ -1,6 +1,6 @@
 *~
 tools/map2check_v7_svcomp.zip
-tools/Map2Check-map2check_v7_svcomp
+#tools/Map2Check-map2check_v7_svcomp
 tools/Map2Check-7
 CPAchecker
 sv-benchmarks
