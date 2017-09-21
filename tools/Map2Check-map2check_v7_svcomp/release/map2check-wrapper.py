@@ -123,6 +123,7 @@ else:
   exit(1)
 
 if is_memsafety:
+	enable_witness = True
 	if enable_witness == True:
 		command_line += " --generate-witness "
 	else:
