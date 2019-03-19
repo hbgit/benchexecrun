@@ -2,11 +2,11 @@
 # Dockerfile to run benchexec
 # based on Ubuntu
 #  By gitclone https://github.com/hbgit/benchexecrun:
-#   $ docker build -t hrocha/benchexec .
+#   $ docker build --no-cache -t hrocha/benchexec -f Dockerfile .
 #   $ docker run -v /sys/fs/cgroup:/sys/fs/cgroup:rw --name=benchexecrun -it hrocha/benchexecrun /bin/bash 
 ############################################################
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # Metadata indicating an image maintainer.
 MAINTAINER <herberthb12@gmail.com>
@@ -44,9 +44,7 @@ ADD / ${REPO_DIR}
 RUN ls
 
 # copying tool modules to the benchexec
-RUN cp -r tool_modules/* /usr/local/lib/python3.5/dist-packages/benchexec/tools/
+RUN test -e /usr/local/lib/python3.6/dist-packages/benchexec/tools/map2check.py && echo "OKAY" || cp tool_modules/* /usr/local/lib/python3.6/dist-packages/benchexec/tools/
 
-RUN cd tools/ ; wget https://github.com/hbgit/Map2Check/archive/v7.zip; unzip v7.zip
-
-RUN svn co https://svn.sosy-lab.org/software/cpachecker/trunk CPAchecker; cd CPAchecker; ant; cd ..
+#RUN svn co https://svn.sosy-lab.org/software/cpachecker/trunk CPAchecker; cd CPAchecker; ant; cd ..
     
