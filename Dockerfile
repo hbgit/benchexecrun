@@ -5,7 +5,7 @@
 #   $ docker build --no-cache -t hrocha/benchexecrun -f Dockerfile .
 #   $ docker run -v /sys/fs/cgroup:/sys/fs/cgroup:rw --name=benchexecrun -it hrocha/benchexecrun /bin/bash
 #   or
-#   $ docker run --rm -v /sys/fs/cgroup:/sys/fs/cgroup:rw -v $(pwd):/home/bench/benchexec_files:Z hrocha/benchexec /bin/bash -c "runexec --no-container echo Test"
+#   $ docker run --rm -v /sys/fs/cgroup:/sys/fs/cgroup:rw -v $(pwd):/home/bench/benchexec_files:Z hrocha/benchexecrun /bin/bash -c "runexec --no-container echo Test"
 ############################################################
 
 FROM ubuntu:18.04
