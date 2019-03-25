@@ -4,7 +4,8 @@
 #  By gitclone https://github.com/hbgit/benchexecrun:
 #   $ docker build --no-cache -t hrocha/benchexecrun -f Dockerfile .
 #   $ docker run -v /sys/fs/cgroup:/sys/fs/cgroup:rw --name=benchexecrun -it hrocha/benchexecrun /bin/bash
-#   $ docker run -it --rm -v /sys/fs/cgroup:/sys/fs/cgroup:rw -v $(pwd):/home/bench/benchexec_files:Z hrocha/benchexec /bin/bash -c "runexec --no-container echo Test"
+#   or
+#   $ docker run --rm -v /sys/fs/cgroup:/sys/fs/cgroup:rw -v $(pwd):/home/bench/benchexec_files:Z hrocha/benchexec /bin/bash -c "runexec --no-container echo Test"
 ############################################################
 
 FROM ubuntu:18.04
@@ -42,9 +43,6 @@ WORKDIR ${REPO_DIR}
 RUN mkdir ${REPO_TOOLS}
 ADD / ${REPO_DIR}
 
-RUN ls
-
 # copying tool modules to the benchexec
 RUN test -e /usr/local/lib/python3.6/dist-packages/benchexec/tools/map2check.py && echo "OKAY" || cp tool_modules/* /usr/local/lib/python3.6/dist-packages/benchexec/tools/
 
-#RUN svn co https://svn.sosy-lab.org/software/cpachecker/trunk CPAchecker; cd CPAchecker; ant; cd ..
