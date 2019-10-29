@@ -28,7 +28,9 @@ RUN apt-get install -y sudo \
     subversion \
     vim \
     ant \
-    default-jre
+    default-jre \
+    python-minimal \
+    libc6-dev
 
 # Clean packages installation
 RUN apt-get clean
